@@ -28,7 +28,7 @@ if weekday != 5:
 dibujo = corazon + letra_e + letra_t + letra_r + letra_a + simbolo_mas
 dibujo.reverse()
 valida_coherencia(dibujo)
-start = start - timedelta(days=len(dibujo))
+start = start - timedelta(days=len(dibujo) - 1)
 mes_del_commit = start.month
 for conts in dibujo:
     if mes_del_commit != start.month:
