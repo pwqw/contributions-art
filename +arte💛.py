@@ -18,7 +18,7 @@ valida_coherencia(simbolo_mas)
 
 # Inicializo el dibujo, que viene invertido
 dibujo = corazon + letra_e + letra_t + letra_r + letra_a + simbolo_mas
-dibujo.reverse()
+dibujo = dibujo[::-1]
 valida_coherencia(dibujo)
 
 # Establezco la fecha de inicio, la más antigua
@@ -42,7 +42,7 @@ for conts in dibujo:
     if mes_del_commit != start.month:
         print('Haciendo el push del mes {}'.format(mes_del_commit))
         do_the_push()
-        input('Presione enter para continuar...')
+        input('Refresque su perfil, luego presione enter para continuar...')
         mes_del_commit = start.month
     do_the_commits(conts, start)
     start = start + timedelta(days=1)
