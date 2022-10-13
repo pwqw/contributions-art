@@ -16,6 +16,12 @@ valida_coherencia(letra_a)
 simbolo_mas = '001100000140001114110144444000140000014000'
 valida_coherencia(simbolo_mas)
 
+# Inicializo el dibujo, que viene invertido
+dibujo = corazon + letra_e + letra_t + letra_r + letra_a + simbolo_mas
+dibujo.reverse()
+valida_coherencia(dibujo)
+
+# Establezco la fecha de inicio, la más antigua
 start = datetime.now(tz=timezone.utc)
 start.hour = 6
 start.minute = 33
@@ -25,16 +31,18 @@ weekday = start.weekday()
 if weekday != 5:
     # si no es sábado, arranco desde el próximo sábado.
     start = start - timedelta(days=weekday + 2)
-dibujo = corazon + letra_e + letra_t + letra_r + letra_a + simbolo_mas
-dibujo.reverse()
-valida_coherencia(dibujo)
 start = start - timedelta(days=len(dibujo) - 1)
+
+# Inicio el creado de commits, pero pusheando 1 vez cada mes,
+# así de este modo voy refrescando mi perfil de github.
+# Si hago el push con los 1891 commits de una, github no renderiza todo
+# en el panel de contribuciones, solo menos de la mitad.
 mes_del_commit = start.month
 for conts in dibujo:
     if mes_del_commit != start.month:
         print('Haciendo el push del mes {}'.format(mes_del_commit))
         do_the_push()
-        input('Presione una tecla para continuar..')
+        input('Presione enter para continuar...')
         mes_del_commit = start.month
     do_the_commits(conts, start)
     start = start + timedelta(days=1)
