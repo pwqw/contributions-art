@@ -3,7 +3,7 @@ from datetime import datetime, timezone, timedelta
 from .utils import valida_coherencia, do_the_commits, do_the_push
 
 # La gama de colores es 0-gris hacia 4-verde oscuro
-corazon = '000144100144440144144144144044144100441441004414400044440000440'
+corazon = '0000110000144100144440144144144144044144100441441004414400044440000440'
 valida_coherencia(corazon)
 letra_e = '110011144111444414144441414444444444444444'
 valida_coherencia(letra_e)
