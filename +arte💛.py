@@ -1,6 +1,6 @@
 from datetime import datetime, timezone, timedelta
 
-from .utils import valida_coherencia, do_the_commits
+from .utils import valida_coherencia, do_the_commits, do_the_push
 
 # La gama de colores es 0-gris hacia 4-verde oscuro
 corazon = '000144100144440144144144144044144100441441004414400044440000440'
@@ -26,7 +26,15 @@ if weekday != 5:
     # si no es sábado, arranco desde el próximo sábado.
     start = start - timedelta(days=weekday + 2)
 dibujo = corazon + letra_e + letra_t + letra_r + letra_a + simbolo_mas
+dibujo.reverse()
 valida_coherencia(dibujo)
+start = start - timedelta(days=len(dibujo))
+mes_del_commit = start.month
 for conts in dibujo:
+    if mes_del_commit != start.month:
+        print('Haciendo el push del mes {}'.format(mes_del_commit))
+        do_the_push()
+        input('Presione una tecla para continuar..')
+        mes_del_commit = start.month
     do_the_commits(conts, start)
-    start = start - timedelta(days=1)
+    start = start + timedelta(days=1)

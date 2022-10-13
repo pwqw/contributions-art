@@ -45,3 +45,8 @@ def do_the_commits(contributions, datetime):
         index.add(THE_EDIT_FILE)
         date = datetime + timedelta(seconds=i * 3)
         index.commit(m, commit_date=date, author_date=date)
+
+
+def do_the_push():
+    origin = Repo(os.getcwd()).remote('origin')
+    origin.push(force=True)
