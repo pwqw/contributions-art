@@ -22,16 +22,16 @@ dibujo = dibujo[::-1]
 valida_coherencia(dibujo)
 
 # Establezco la fecha de inicio, la más antigua
-start = datetime.now(tz=timezone.utc)
-start.hour = 6
-start.minute = 33
-start.second = 33
-start.microsecond = 0
-weekday = start.weekday()
+sabado = datetime.now(tz=timezone.utc)
+sabado.hour = 6
+sabado.minute = 33
+sabado.second = 33
+sabado.microsecond = 0
+weekday = sabado.weekday()
 if weekday != 5:
     # si no es sábado, arranco desde el próximo sábado.
-    start = start - timedelta(days=weekday + 2)
-start = start - timedelta(days=len(dibujo) - 1)
+    sabado = sabado - timedelta(days=weekday + 2)
+start = sabado - timedelta(days=len(dibujo) - 1)
 
 # Inicio el creado de commits, pero pusheando 1 vez cada mes,
 # así de este modo voy refrescando mi perfil de github.
