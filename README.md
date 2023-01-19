@@ -1,5 +1,7 @@
 # Contributions Art
 
+[Visuals can be found here.](https://github.com/pwqw?tab=overview&from=2022-12-01&to=2022-12-31) 😁
+
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
 This work is licensed under a
